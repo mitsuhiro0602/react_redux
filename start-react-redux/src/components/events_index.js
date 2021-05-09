@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { readEvents } from '../actions'
-import _ from 'lodash'
+import { readEvents } from '../actions';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 // function App() {
 //   return <App />;
@@ -23,19 +24,23 @@ renderEvents() {
 }
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.renderEvents()}
-        </tbody>
+      <React.Fragment>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderEvents()}
+          </tbody>
 
-      </table>
+        </table>
+
+        <Link to="/events/new">New Event</Link>
+      </React.Fragment>
     );
   }
 }
